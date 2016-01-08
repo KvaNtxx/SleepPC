@@ -5,6 +5,8 @@ package com.example.myapplication2.app;
  */
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -28,6 +30,24 @@ public class ComponentsManagement {
         String[] items = new String[]{"Sleep", "Restart", "Shutdown"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(main, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
+
+        dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                EditText macAdress = (EditText) main.findViewById(R.id.macAdress);
+                Spinner spinner = (Spinner) main.findViewById(R.id.spinner);
+                if(spinner.getSelectedItem()=="Restart")
+                    macAdress.setVisibility(View.VISIBLE);
+                else
+                    macAdress.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     void sharedPreferencesInit()

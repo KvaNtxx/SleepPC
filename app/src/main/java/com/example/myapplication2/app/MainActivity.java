@@ -1,15 +1,11 @@
 package com.example.myapplication2.app;
 
 
-import android.content.SharedPreferences;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.Spinner;
 
 
@@ -63,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
         socketClient.execute();
         // Do something in response to button click
     }
-
 
 }
 
